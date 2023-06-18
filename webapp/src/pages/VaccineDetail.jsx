@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import vaccineApi from "../api/vaccineApi";
-import { CustomDialog, PageHeader } from "../components";
+import { CustomDialog, PageHeader, VaccineLots } from "../components";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   Box,
@@ -79,6 +79,16 @@ const VaccineDetail = () => {
     }
   };
 
+  const resetPage = async () => {
+    try {
+      const res = await vaccineApi.getOne(id);
+      setVaccine(res);
+      setName(res.name);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <PageHeader
@@ -148,6 +158,16 @@ const VaccineDetail = () => {
               </LoadingButton>
             </CardActions>
           </Card>
+        </Grid>
+        <Grid item xs={8}>
+          {vaccine && (
+            <VaccineLots
+              vaccine={vaccine}
+              onLotAdded={resetPage}
+              onLotDeleted={resetPage}
+              onLotUpdated={resetPage}
+            />
+          )}
         </Grid>
       </Grid>
       <CustomDialog
