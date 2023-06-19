@@ -28,10 +28,10 @@ const Dashboard = () => {
     const getData = async () => {
       try {
         const res = await adminApi.getSummary();
-        console.log(res);
+        // console.log(res);
         setSummaryData(res);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     getData();

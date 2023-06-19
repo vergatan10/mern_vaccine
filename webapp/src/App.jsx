@@ -12,6 +12,9 @@ import {
   UserDetail,
   Vaccine,
   VaccineDetail,
+  Place,
+  PlaceDetail,
+  QRScan,
 } from "./pages";
 
 function App() {
@@ -26,6 +29,9 @@ function App() {
           <Route path="/user/:id" element={<UserDetail />} />
           <Route path="/vaccine" element={<Vaccine />} />
           <Route path="/vaccine/:id" element={<VaccineDetail />} />
+          <Route path="/place" element={<Place />} />
+          <Route path="/place/:id" element={<PlaceDetail />} />
+          <Route path="/qr-scan" element={<QRScan />} />
         </Route>
       </Routes>
     </BrowserRouter>

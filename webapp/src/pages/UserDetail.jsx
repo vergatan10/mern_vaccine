@@ -14,7 +14,7 @@ import {
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import userApi from "../api/userApi";
-import { CustomDialog, PageHeader } from "../components";
+import { CustomDialog, PageHeader, UserVaccine } from "../components";
 import addressList from "../assets/dvhcvn.json";
 import { LoadingButton } from "@mui/lab";
 import QRCode from "react-qr-code";
@@ -66,6 +66,7 @@ const UserDetail = () => {
                 onUpdateSuccess={onUpdateSuccess}
               />
             )}
+            {user && <UserVaccine user={user} />}
           </Stack>
         </Grid>
         <Grid item xs={3}>
