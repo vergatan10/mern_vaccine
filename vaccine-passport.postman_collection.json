@@ -1,0 +1,701 @@
+{
+	"info": {
+		"_postman_id": "c782c07b-b5ce-4c9d-b78b-578845e60b70",
+		"name": "vaccine-passport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20980702"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "admin login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"asd!asd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/admin/login"
+					},
+					"response": []
+				},
+				{
+					"name": "check token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://127.0.0.1:3000/api/admin/check-token"
+					},
+					"response": []
+				},
+				{
+					"name": "get summary data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/admin/summary"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"012344678912\",\r\n    \"idNumber\": \"098765442112\",\r\n    \"fullName\": \"user 4\",\r\n    \"address\": \"address 4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/user"
+					},
+					"response": []
+				},
+				{
+					"name": "user check in place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RlZjE5ZDQyMzcxNTg3YzFlNGI3OSIsImlhdCI6MTY4NTk3NDgwOX0.Jz6-E3Q6Z5673WGjuKTw6Kj6Vt-VIt0CpH9g4t0uW3k"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"placeId\": \"647def9d6f1b0f06981d665e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/user/checkin-place"
+					},
+					"response": []
+				},
+				{
+					"name": "vaccinated",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"647def19d42371587c1e4b79\",\r\n    \"vaccineId\": \"647dfc0d880118865d6202b2\",\r\n    \"vaccineLotId\": \"647dfc1c880118865d6202b5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/user/vaccinated"
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"user 2 updated1\",\r\n    \"address\": \"address 2 updated1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/user/647de4db37b0cea68735a7fc"
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/user/647de4db37b0cea68735a7fc"
+					},
+					"response": []
+				},
+				{
+					"name": "get all user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/user"
+					},
+					"response": []
+				},
+				{
+					"name": "get all place of user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/user/647def19d42371587c1e4b79/place"
+					},
+					"response": []
+				},
+				{
+					"name": "get all place of user checked in",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/user/647def19d42371587c1e4b79/place-visited"
+					},
+					"response": []
+				},
+				{
+					"name": "get one user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/user/647de4db37b0cea68735a7fc"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "place",
+			"item": [
+				{
+					"name": "create place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RlZjE5ZDQyMzcxNTg3YzFlNGI3OSIsImlhdCI6MTY4NTk3NDgwOX0.Jz6-E3Q6Z5673WGjuKTw6Kj6Vt-VIt0CpH9g4t0uW3k"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hotel A\",\r\n    \"address\": \"address update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/place"
+					},
+					"response": []
+				},
+				{
+					"name": "get all place",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/place"
+					},
+					"response": []
+				},
+				{
+					"name": "get one place",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/place/647def9d6f1b0f06981d665e"
+					},
+					"response": []
+				},
+				{
+					"name": "update place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RlZjE5ZDQyMzcxNTg3YzFlNGI3OSIsImlhdCI6MTY4NTk3NDgwOX0.Jz6-E3Q6Z5673WGjuKTw6Kj6Vt-VIt0CpH9g4t0uW3k"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ABC Hospital updated\",\r\n    \"address\": \"address\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/place/647def9d6f1b0f06981d665e"
+					},
+					"response": []
+				},
+				{
+					"name": "delete place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RlZjE5ZDQyMzcxNTg3YzFlNGI3OSIsImlhdCI6MTY4NTk3NDgwOX0.Jz6-E3Q6Z5673WGjuKTw6Kj6Vt-VIt0CpH9g4t0uW3k"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ABC Hospital updated\",\r\n    \"address\": \"address\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/place/647df38cd868d3a4c520d3c3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vaccine",
+			"item": [
+				{
+					"name": "create vaccine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vaccine 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine"
+					},
+					"response": []
+				},
+				{
+					"name": "get all vaccine",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine"
+					},
+					"response": []
+				},
+				{
+					"name": "get one vaccine",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine/647df67d8ac8ad8adc42885e"
+					},
+					"response": []
+				},
+				{
+					"name": "update vaccine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vaccine 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine/647df67d8ac8ad8adc42885e"
+					},
+					"response": []
+				},
+				{
+					"name": "delete vaccine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine/647dfa0942a2556969ffbad2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vaccine lot",
+			"item": [
+				{
+					"name": "create vaccine lot",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vaccine22\",\r\n    \"quantity\": \"200000\",\r\n    \"vaccineId\": \"647df67d8ac8ad8adc42885e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine/lots"
+					},
+					"response": []
+				},
+				{
+					"name": "get all vaccine lot",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine/lots/get-all"
+					},
+					"response": []
+				},
+				{
+					"name": "get one vaccine lot",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine/lots/647dfda6880118865d6202cb"
+					},
+					"response": []
+				},
+				{
+					"name": "update vaccine lot",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ECL012\",\r\n    \"quantity\": \"100000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine/lots/647dfc1c880118865d6202b5"
+					},
+					"response": []
+				},
+				{
+					"name": "update vaccine lot Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2RkNzBjNzQyYjU1M2ZlOTA5YWUzOCIsImlhdCI6MTY4NTk3MjA3OH0.JkcVO8lH4bcJA2sbOkzdrEh-q0Wbu3Hx7oyPC0zx0RE"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/api/vaccine/lots/647dfda6880118865d6202cb"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
